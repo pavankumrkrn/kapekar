@@ -44,8 +44,11 @@ document.getElementById('form').onsubmit = function (e) {
     e.preventDefault();
     count = 0;
     let formObject  = document.getElementById('form').elements;
-    let num = formObject.kNumber.value
-    if(isKapekarNumber(num) == 6174) {
+    let num = formObject.kNumber.value 
+    if(num.length > 4) {
+        alert('Please Enter a 4 digit number');
+    } else {
+        if(isKapekarNumber(num) == 6174) {
         document.getElementById('result').setAttribute('style', 'color:green;')
         text = 'Hurray ! '+num+' is a kapekar Number'
     } else {
@@ -54,6 +57,8 @@ document.getElementById('form').onsubmit = function (e) {
     }
     document.getElementById('result').innerText = text;
     document.getElementById('kNumber').value = ''
+    }
+    
 
 }
 function isKapekarNumber(num){
